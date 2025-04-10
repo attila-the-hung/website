@@ -1,0 +1,166 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #312F2F;
+  padding: 0.8rem 2rem;
+  border-radius: 100px; /* Fully rounded navbar */
+  margin: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 3s ease;
+  overflow: hidden;
+  width: 80%; /* Reduced width from 100% to 80% */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left section with animated square and name */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.animated-square {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #CDCBCB;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+  animation: rotate 10s linear infinite;
+}
+
+.animated-square.hovered {
+  border-radius: 50%;
+  transform: scale(0.9);
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.name-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #CDCBCB;
+  font-weight: 600;
+}
+
+.name-title p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #CDCBCB;
+  font-weight: 400;
+}
+
+/* Center section with navigation icons */
+.navbar-center ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-center button {
+  background: none;
+  border: none;
+  color: #CDCBCB;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-center button:hover {
+  color: #fff;
+}
+
+/* Font Awesome icon styling */
+.navbar-center svg {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.navbar-center span {
+  font-size: 0.8rem;
+}
+
+/* Right section with utility icons */
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #CDCBCB;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icon-button svg {
+  font-size: 1.2rem;
+}
+
+.icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Font Awesome icons are now used directly in the component */
+
+/* Collapsed navbar styles */
+.navbar.collapsed {
+  width: 80px;
+  justify-content: flex-end;
+  padding: 0.8rem 1rem;
+  position: absolute;
+  right: 10rem; /* Position on the right side */
+  top: 1rem;
+}
+
+.navbar.collapsed .navbar-left,
+.navbar.collapsed .navbar-center {
+  display: none;
+}
+
+.navbar.collapsed .navbar-right {
+  gap: 0;
+}
+
+.navbar.collapsed .icon-button:not(.toggle-button) {
+  display: none;
+}
+
+/* Toggle button styles */
+.toggle-button {
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.navbar.collapsed .toggle-button {
+  transform: rotate(45deg);
+}
